@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
-@import './prism.css';
 @tailwind utilities;
+@import './prism.css';
+
 @layer base {
   :root {
       --background: 0 0% 100%;
@@ -65,5 +66,79 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* 覆盖 pre 标签的样式 */
+  pre {
+    @apply bg-transparent !important; /* 移除背景色 */
+    padding: 0 !important; /* 移除内边距 */
+  }
+
+  /* 覆盖 code 标签的样式 */
+  code {
+    @apply bg-transparent text-foreground !important; /* 使用主题前景色 */
+  }
+}
+
+@layer components {
+  pre.rounded-3xl {
+    border-radius: 0 !important; /* 强制直角 */
+    overflow: visible !important; /* 防止文字被裁剪 */
+  }
+  
+  code.rounded-lg {
+    border-radius: 0 !important;
+  }
+}
+
+@layer components {
+  pre code {
+    white-space: pre !important; /* 强制保留原始换行 */
+    text-indent: 0 !important; /* 清除首行缩进 */
+    display: block; /* 修复换行容器问题 */
+  }
+}
+
+@layer components {
+  blockquote ul, blockquote ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  blockquote li {
+    display: list-item;
+    margin-bottom: 0.2em;
+    white-space: normal;
+  }
+  blockquote li p {
+    display: inline;
+  }
+  blockquote {
+    line-height: 1.5; /* or 1.6, adjust as you like */
+    padding: 0.0005em;
+  }
+}
+
+@layer components {
+  blockquote table {
+    background: #fff;
+    border: 2px solid #e0e7ef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    margin: 1.5em 0;
+    padding: 0.5em 0.5em;
+    width: calc(100% - 4em);
+    overflow: hidden;
+  }
+  blockquote th, blockquote td {
+    border: 1px solid #e0e7ef;
+    padding: 0.8em 1.2em;
+    text-align: left;
+    background: none;
+  }
+  blockquote th {
+    background: #f0f6ff;
+    font-weight: bold;
   }
 }

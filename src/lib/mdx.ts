@@ -2,6 +2,7 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { mdxComponents } from '@/components/shared/MdxComponents'
+import remarkGfm from 'remark-gfm'
 
 export async function getMDXContent(slug: string) {
   const filePath = path.join(process.cwd(), 'src/content/blog', `${slug}.mdx`)
@@ -10,7 +11,12 @@ export async function getMDXContent(slug: string) {
   const { content } = await compileMDX({
     source,
     components: mdxComponents,
-    options: { parseFrontmatter: true }
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+      }
+    }
   })
   
   return content

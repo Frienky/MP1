@@ -38,9 +38,7 @@ export function Footer() {
               </div>
               <div className='flex flex-col justify-center items-start'>
                 <div className='flex flex-row justify-end items-center gap-2'>
-                  <p className="text-sm text-muted-foreground">
-                    &copy; {new Date().getFullYear()} {name}. All rights reserved.
-                  </p>
+                  <p className="text-sm text-gray-500">Original work: Copyright © 2024 Corey Chiu; built upon <a href="https://github.com/SCLS-AI-Camp/MP1" className="text-blue-500 hover:underline">SCLS-AI-Camp/MP1</a></p>
                   <ThemeToggle />
                 </div>
                 <SocialLinks className='mt-0'/>

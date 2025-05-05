@@ -1,48 +1,24 @@
-export * from './projects'
-export * from './education'
-export * from './career'
-
 // personal info
-export const name = 'Derek Hu'
-export const headline = 'Teacher at Shanghai Soong Ching Ling School.'
+export const name = 'Tressa Leung'
+export const headline = 'Reflect, Grow, and Stay Prepared'
 export const introduction =
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020."
-export const email = 'tong.hu@scls-sh.org'
+  "I have eight years of experience exploring personal knowledge management, constantly optimizing how information flows. For three years, I’ve worked as an educator specializing in groups with diverse needs—adapting my approach, solving problems creatively, and making complex ideas resonate."
+export const email = 'tressa.leung@outlook.com'
 export const githubUsername = 'derekhut'
 
 // about page
-export const aboutMeHeadline = 'Who Are You and Why Should I Care?'
+export const aboutMeHeadline = 'Tech, Tenderly'
 export const aboutParagraphs = [
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020.",
-  'Currently I am working on a new course called AI Camp, an innovative course where high school students create real-world products and startups while exploring the frontiers of AI.',
-  "I started this blog to share the insights I learn every day. Most blogs focus on education in Artificial Intelligence and general computer science, while others share the life lessons I've learned.",
+  "A true Capricorn — structured, quietly determined, and maybe a little too enthusiastic about orderly file systems.",
+  'Believes the two SSDs in my luggage are my most valuable possessions. Keeps a backup at home—because data loss is not an option!',
+  "Dreams of having my own NAS one day, to fully embrace the joy of digitizing and storing everything~",
 ]
 
 // blog
 export const blogHeadLine = "What I've thinking about."
 export const blogIntro =
-  "I've written something about AI, programming and life."
+  "I've written something about personal knowledge management."
 
-// social links
-export type SocialLinkType = {
-  name: string
-  ariaLabel?: string
-  icon: string
-  href: string
-}
-
-export const socialLinks: Array<SocialLinkType> = [
-  {
-    name: 'Tiktok',
-    icon: 'tiktok',
-    href: 'https://www.tiktok.com/@harvard?lang=en',
-  },
-  {
-    name: 'Bilibili',
-    icon: 'bilibili',
-    href: 'https://space.bilibili.com/349721082',
-  },
-]
 
 // https://simpleicons.org/
 export const techIcons = [
