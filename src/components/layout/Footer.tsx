@@ -4,7 +4,6 @@ import { ContainerInner, ContainerOuter } from '@/components/layout/Container'
 import { footerItems } from '@/config/siteConfig'
 import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { name } from '@/config/infoConfig'
-import SocialLinks from '@/components/home/SocialLinks'
 
 
 function NavLink({
@@ -41,7 +40,6 @@ export function Footer() {
                   <p className="text-sm text-gray-500">Original work: Copyright © 2024 Corey Chiu; built upon <a href="https://github.com/SCLS-AI-Camp/MP1" className="text-blue-500 hover:underline">SCLS-AI-Camp/MP1</a></p>
                   <ThemeToggle />
                 </div>
-                <SocialLinks className='mt-0'/>
               </div>
             </div>
           </ContainerInner>
