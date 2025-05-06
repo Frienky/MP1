@@ -1,12 +1,9 @@
 import { Container } from '@/components/layout/Container'
-import Newsletter from '@/components/home/Newsletter'
 import { headline, introduction } from '@/config/infoConfig'
 import { BlogCard } from '@/components/home/BlogCard'
 import { getAllBlogs, type BlogType } from '@/lib/blogs'
 import { blogHeadLine, blogIntro, techIcons } from '@/config/infoConfig'
-import { awards, awardsHeadLine, awardsIntro, activities, activitiesHeadLine, activitiesIntro } from '@/config/projects'
 import IconCloud from "@/components/ui/icon-cloud"
-import { Award, Briefcase, Heart } from 'lucide-react'
 
 export default async function Home() {
   let blogList = (await getAllBlogs()).slice(0, 4)
