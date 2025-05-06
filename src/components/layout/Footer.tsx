@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Mail } from 'lucide-react'
 
 import { ContainerInner, ContainerOuter } from '@/components/layout/Container'
 import { footerItems } from '@/config/siteConfig'
@@ -34,6 +35,9 @@ export function Footer() {
                 {footerItems.map((item) => (
                   <NavLink key={item.name} href={item.href}>{item.name}</NavLink>
                 ))}
+                <a href="mailto:tressa.leung@outlook.com" className="transition hover:text-primary">
+                  <Mail className="h-5 w-5" />
+                </a>
               </div>
               <div className='flex flex-col justify-center items-start'>
                 <div className='flex flex-row justify-end items-center gap-2'>
