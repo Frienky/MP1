@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { AppContext } from '@/app/providers'
 import { Container } from '@/components/layout/Container'
 import { Prose } from '@/components/shared/Prose'
+import { TableOfContents } from '@/components/shared/TableOfContents'
 import { type BlogType } from '@/lib/blogs'
 import { formatDate } from '@/lib/formatDate'
 
@@ -34,8 +35,8 @@ export function BlogLayout({
 
   return (
     <Container className="mt-16 lg:mt-32">
-      <div className="xl:relative">
-        <div className="mx-auto max-w-2xl">
+      <div className="lg:flex lg:gap-10 lg:items-start lg:justify-center">
+        <div className="relative mx-auto max-w-2xl xl:mx-0">
           {previousPathname && (
             <button
               type="button"
@@ -53,12 +54,18 @@ export function BlogLayout({
               </h1>
               <time
                 dateTime={blog.date}
-                className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                className="order-first flex items-center gap-2 text-sm text-zinc-400 dark:text-zinc-500"
               >
                 <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                <span className="ml-3">{formatDate(blog.date)}</span>
-                <span className="mx-2">·</span>
+                <span>{formatDate(blog.date)}</span>
+                <span>·</span>
                 <span>{blog.author}</span>
+                {blog.readingTime > 0 && (
+                  <>
+                    <span>·</span>
+                    <span>约 {blog.readingTime} 分钟阅读</span>
+                  </>
+                )}
               </time>
             </header>
             <Prose className="mt-8" data-mdx-content>
@@ -66,6 +73,14 @@ export function BlogLayout({
             </Prose>
           </article>
         </div>
+
+        {blog.headings && blog.headings.length > 0 && (
+          <div className="hidden lg:block w-52 shrink-0 self-start">
+            <div className="sticky top-24">
+              <TableOfContents headings={blog.headings} />
+            </div>
+          </div>
+        )}
       </div>
     </Container>
   )

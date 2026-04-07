@@ -2,15 +2,14 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { aboutMeHeadline, aboutParagraphs } from '@/config/infoConfig'
+import { aboutMeHeadline, aboutParagraphs, introduction } from '@/config/infoConfig'
 import { Container } from '@/components/layout/Container'
 
 import portraitImage from '@/images/portrait.jpg'
 
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+  description: introduction,
 }
 
 export default function About() {

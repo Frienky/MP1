@@ -4,6 +4,10 @@
 @import './prism.css';
 
 @layer base {
+  html {
+    overflow-x: clip;
+  }
+
   :root {
       --background: 0 0% 100%;
       --foreground: 240 10% 3.9%;
@@ -69,35 +73,50 @@
   }
 }
 
-@layer components {
-  /* 覆盖 pre 标签的样式 */
-  pre {
-    @apply bg-transparent !important; /* 移除背景色 */
-    padding: 0 !important; /* 移除内边距 */
+
+
+
+/* 移动端表格卡片化 */
+@media (max-width: 640px) {
+  .responsive-table thead {
+    display: none;
+  }
+  .responsive-table tbody tr {
+    display: block;
+    margin-bottom: 0.75em;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .responsive-table tbody td {
+    display: flex;
+    gap: 0.75em;
+    padding: 0.5em 0.75em;
+    border: none;
+    border-bottom: 1px solid hsl(var(--border));
+    background: none !important;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    align-items: baseline;
+  }
+  .responsive-table tbody td:last-child {
+    border-bottom: none;
+  }
+  .responsive-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    min-width: 5em;
+    flex-shrink: 0;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.8125rem;
   }
 
-  /* 覆盖 code 标签的样式 */
-  code {
-    @apply bg-transparent text-foreground !important; /* 使用主题前景色 */
+  /* 暗色模式：用 white/12 替换几乎不可见的 --border */
+  .dark .responsive-table tbody tr {
+    border-color: rgba(255, 255, 255, 0.12);
   }
-}
-
-@layer components {
-  pre.rounded-3xl {
-    border-radius: 0 !important; /* 强制直角 */
-    overflow: visible !important; /* 防止文字被裁剪 */
-  }
-  
-  code.rounded-lg {
-    border-radius: 0 !important;
-  }
-}
-
-@layer components {
-  pre code {
-    white-space: pre !important; /* 强制保留原始换行 */
-    text-indent: 0 !important; /* 清除首行缩进 */
-    display: block; /* 修复换行容器问题 */
+  .dark .responsive-table tbody td {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -122,23 +141,21 @@
 
 @layer components {
   blockquote table {
-    background: #fff;
-    border: 2px solid #e0e7ef;
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
     border-radius: 10px;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
     margin: 1.5em 0;
     padding: 0.5em 0.5em;
-    width: calc(100% - 4em);
-    overflow: hidden;
   }
   blockquote th, blockquote td {
-    border: 1px solid #e0e7ef;
+    border: 1px solid hsl(var(--border));
     padding: 0.8em 1.2em;
     text-align: left;
     background: none;
   }
   blockquote th {
-    background: #f0f6ff;
+    background: hsl(var(--secondary));
     font-weight: bold;
   }
 }
