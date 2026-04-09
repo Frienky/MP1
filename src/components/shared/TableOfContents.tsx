@@ -31,9 +31,9 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null
 
   return (
-    <nav aria-label="目录">
+    <nav aria-label="Table of Contents">
       <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-        目录
+        On This Page
       </p>
       <ul className="space-y-1.5">
         {headings.map(({ id, text, level }) => (

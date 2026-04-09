@@ -63,7 +63,7 @@ export function BlogLayout({
                 {blog.readingTime > 0 && (
                   <>
                     <span>·</span>
-                    <span>约 {blog.readingTime} 分钟阅读</span>
+                    <span>~{blog.readingTime} min read</span>
                   </>
                 )}
               </time>

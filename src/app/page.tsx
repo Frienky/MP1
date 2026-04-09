@@ -23,7 +23,7 @@ export default async function Home() {
         {/* Featured article card */}
         {featured && (
           <Link href={`/blogs/${featured.slug}`} className="block group mt-12">
-            <div className="rounded-xl border border-muted p-6 transition-colors group-hover:border-muted-foreground/30">
+            <div className="rounded-xl border border-border p-6 transition-colors group-hover:border-muted-foreground/30">
               <h2 className="text-xl font-semibold tracking-tight sm:text-2xl text-foreground group-hover:text-primary transition-colors">
                 {featured.title}
               </h2>
